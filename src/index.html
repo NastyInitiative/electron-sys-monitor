@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Electron System Monitor</title>
+		<link rel="stylesheet" href="index.css">
+		<script src="./render.js"></script>
+	</head>
+
+	<body>
+		<div class="text-center">
+			<h1>Electron System Information</h1>
+		</div>
+		<!-- PC -->
+		<div class="text-center">
+			<h2>PC</h2>
+		</div>
+		<div class="box-container box-border">
+			<div class="box text-center">
+				<span class="label">Manufacturer</span>
+				<span id="pc-manufacturer">-</span>
+			</div>
+			<div class="box text-center">
+				<span class="label">Model</span>
+				<span id="pc-model"></span>
+			</div>
+		</div>
+
+		<!-- BIOS -->
+		<div class="text-center">
+			<h2>BIOS</h2>
+		</div>
+		<div class="box-container box-border">
+			<div class="box">
+				<span class="label">Vendor</span>
+				<span id="bios-vendor"></span>
+			</div>
+			<div class="box">
+				<span class="label">Version</span>
+				<span id="bios-version"></span>
+			</div>
+		</div>
+
+		<!-- Motherboard -->
+		<div class="box-container">
+			<h2>Motherboard</h2>
+		</div>
+		<div class="box-container box-border">
+			<div class="box">
+				<span class="label">Manufacturer</span>
+				<span id="baseboard-manuf"></span>
+			</div>
+			<div class="box">
+				<span class="label">Model</span>
+				<span id="baseboard-model"></span>
+			</div>
+		</div>
+
+		<!-- CPU -->
+		<div class="box-container">
+			<h2>CPU</h2>
+		</div>
+		<div class="box-container box-border cpu-box-deco">
+			<div class="box">
+				<span class="label">CPU Brand</span>
+				<span id="cpu-brand"></span>
+			</div>
+			<div class="box">
+				<span class="label">Manufacturer</span>
+				<span id="cpu-manuf"></span>
+			</div>
+			<div class="box">
+				<span class="label">Physical Cores</span>
+				<span id="cpu-phys-cores"></span>
+			</div>
+			<div class="box">
+				<span class="label">Socket</span>
+				<span id="cpu-socket"></span>
+			</div>
+			<div class="box-container box-separator"></div>
+
+			<div class="box-container">
+				<h3>CPU Speeds</h3>
+			</div>
+			<div class="box-container box-border box-margin-xs">
+				<div class="box">
+					<span class="label">Average</span>
+					<span id="cpu-avg-speed"></span>
+				</div>
+				<div class="box">
+					<span class="label">Min</span>
+					<span id="cpu-min-speed"></span>
+				</div>
+				<div class="box">
+					<span class="label">Max</span>
+					<span id="cpu-max-speed"></span>
+				</div>
+			</div>
+		</div>
+		<!-- End CPU -->
+
+		<!-- Memory -->
+		<div class="box-container ">
+			<h2>Memory</h2>
+		</div>
+		<div class="box-container box-border mem-box-deco">
+			<div class="box">
+				<span class="label">Total Mem</span>
+				<span id="total-mem">-</span>
+			</div>
+			<div class="box">
+				<span class="label">Available Mem</span>
+				<span id="aval-mem">-</span>
+			</div>
+			<div class="box">
+				<span class="label">Used Mem </span>
+				<span id="used-mem">-</span>
+			</div>
+		</div>
+		<!-- End Memory -->
+	</body>
+</html>
