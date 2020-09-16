@@ -2,8 +2,6 @@ const electron = require("electron");
 const ipcRenderer = electron.ipcRenderer;
 
 let infoArray = [
-	"pc-manufacturer",
-	"pc-model",
 	"bios-vendor",
 	"bios-version",
 	"baseboard-manuf",
@@ -18,25 +16,41 @@ let infoArray = [
 	"total-mem",
 	"aval-mem",
 	"used-mem",
+	"os-arch",
+	'os-release',
+	'os-logofile'
 ];
 
 /* ipcRenderer.on('cpuTemp', (event, data) => {
 	console.log(data);
 }); */
 
+function capitalize(string) 
+{
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 function renderInfo(infoArray) {
 	infoArray.forEach((singleData, index) => {
 		ipcRenderer.on(singleData, (event, data) => {
-			if (singleData == 'cpu-avg-speed' ||
-				 singleData == 'cpu-max-speed' || 
-				 singleData == 'cpu-min-speed') {
-				document.querySelector(`#${singleData}`).innerHTML = `${data} Mhz`;
-			} else if (singleData == "total-mem" ||
-						singleData == "aval-mem" ||
-						singleData == "used-mem") {
-				document.querySelector(`#${singleData}`).innerHTML = `${data.toFixed(2)} GB`;
-			} else {
-				document.querySelector(`#${singleData}`).innerHTML = data;
+			switch(singleData) {
+				case 'cpu-avg-speed':
+				case 'cpu-max-speed':
+				case 'cpu-min-speed':
+					document.querySelector(`#${singleData}`).innerHTML = `${data} Mhz`;
+					break;
+				case "total-mem":
+				case "aval-mem" :
+				case "used-mem" :
+					document.querySelector(`#${singleData}`).innerHTML = `${data.toFixed(2)} GB`;
+					break;
+				case "os-logofile":
+					document.querySelector(`#${singleData}`).innerHTML = capitalize(data);
+					break;
+				default:
+					document.querySelector(`#${singleData}`).innerHTML = data;
+					break;
+
 			}
 		});
 	});

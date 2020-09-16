@@ -13,17 +13,38 @@
 			<h1>Electron System Information</h1>
 		</div>
 		<!-- PC -->
-		<div class="text-center">
+		<div class="box-container">
 			<h2>PC</h2>
 		</div>
 		<div class="box-container box-border">
-			<div class="box text-center">
+			<div class="box">
 				<span class="label">Manufacturer</span>
-				<span id="pc-manufacturer">-</span>
+				<span id="baseboard-manuf"></span>
 			</div>
-			<div class="box text-center">
+			<div class="box">
 				<span class="label">Model</span>
-				<span id="pc-model"></span>
+				<span id="baseboard-model"></span>
+			</div>
+
+			<div class="box-container box-separator"></div>
+
+			<!-- OS Info -->
+			<div class="box-container">
+				<h3>OS Info</h3>
+			</div>
+			<div class="box-container box-border box-margin-xs">
+				<div class="box">
+					<span class="label">OS</span>
+					<span id="os-logofile"></span>
+				</div>
+				<div class="box">
+					<span class="label">Architecture</span>
+					<span id="os-arch"></span>
+				</div>
+				<div class="box">
+					<span class="label">Release</span>
+					<span id="os-release"></span>
+				</div>
 			</div>
 		</div>
 
@@ -39,21 +60,6 @@
 			<div class="box">
 				<span class="label">Version</span>
 				<span id="bios-version"></span>
-			</div>
-		</div>
-
-		<!-- Motherboard -->
-		<div class="box-container">
-			<h2>Motherboard</h2>
-		</div>
-		<div class="box-container box-border">
-			<div class="box">
-				<span class="label">Manufacturer</span>
-				<span id="baseboard-manuf"></span>
-			</div>
-			<div class="box">
-				<span class="label">Model</span>
-				<span id="baseboard-model"></span>
 			</div>
 		</div>
 
@@ -80,6 +86,7 @@
 			</div>
 			<div class="box-container box-separator"></div>
 
+			<!-- CPU Speeds -->
 			<div class="box-container">
 				<h3>CPU Speeds</h3>
 			</div>

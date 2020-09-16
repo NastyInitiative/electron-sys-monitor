@@ -6,21 +6,28 @@ const sysInfo = require('./info');
 const createWindow = () => {
 	// Create the browser window.
 	const mainWindow = new BrowserWindow({
-		width: 1200,
-		height:  800,
+		width: 800,
+		height:  600,
 		webPreferences: {
 			nodeIntegration: true
 		}
 	});
+	
+	
 	setInterval(() => {
 		sysInfo.getCpuSpeed(mainWindow);
 		// getCpuTemp(mainWindow);
 		sysInfo.getMemInfo(mainWindow);
-		sysInfo.getBiosInfo(mainWindow);
-		sysInfo.getBaseBoardInfo(mainWindow);	
 	}, 1000);
-	sysInfo.getCpuInfo(mainWindow);
-	sysInfo.getPCInfo(mainWindow);
+
+	setTimeout(() => {
+		sysInfo.getPCInfo(mainWindow);
+		sysInfo.getBiosInfo(mainWindow);
+		sysInfo.getBaseBoardInfo(mainWindow);
+		sysInfo.getCpuInfo(mainWindow);
+		sysInfo.getOsInfo(mainWindow);
+	}, 5000)
+	
 	
 	
 	// and load the index.html of the app.
@@ -28,7 +35,7 @@ const createWindow = () => {
 	mainWindow.removeMenu();
 	
 	// Open the DevTools.
-	// mainWindow.webContents.openDevTools();
+	mainWindow.webContents.openDevTools();
 };
 
 // This method will be called when Electron has finished

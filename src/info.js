@@ -55,8 +55,8 @@ exports.getMemInfo = function(mainWindow){
 exports.getPCInfo = function(mainWindow){
 	si.system()
 			.then(data => {
-				mainWindow.webContents.send('pc-manufacturer', (data.manufacturer));
-				mainWindow.webContents.send('pc-model', (data.model));
+				// mainWindow.webContents.send('pc-manufacturer', (data.manufacturer));
+				// mainWindow.webContents.send('pc-model', (data.model));
 			});
 }
 
@@ -84,6 +84,7 @@ exports.getOsInfo = function(mainWindow){
 				mainWindow.webContents.send('os-platform', (data.platform));
 				mainWindow.webContents.send('os-release', (data.release));
 				mainWindow.webContents.send('os-arch', (data.arch));
+				mainWindow.webContents.send('os-logofile', (data.logofile));
 			});
 }
 
